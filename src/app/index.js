@@ -1,3 +1,20 @@
+import {render} from "react-dom";
+import React from "react";
+import {Provider} from "react-redux";
+
+import App from "./containers/App";
+import store from "./store";
+
+render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    window.document.getElementById('reactCalApp')
+);
+
+//------------------------------------------------------------
+
+/*
 import React from 'react';
 import { render } from 'react-dom';
 
@@ -22,7 +39,6 @@ class App extends React.Component {
     render() {
         return (
             <div className="container">
-            	<Header/>
                 <Main changeUsername={this.changeUsername.bind(this)}/>
                 <User username={this.state.username}/>
             </div>
@@ -31,8 +47,7 @@ class App extends React.Component {
 }
 
 render(<App/>, window.document.getElementById("reactCalApp"));
-
-/*
+//-------------------------------------------------------------------
 import {render} from "react-dom";
 import React from "react";
 import {createStore, combineReducers, applyMiddleware} from "redux";
