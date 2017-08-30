@@ -3,103 +3,27 @@ import {connect} from "react-redux";
 
 import { User } from "../components/User";
 import { Main } from "../components/Main";
-import { setName } from "../actions/userActions";
+import { History } from "../components/display/History";
+import { Current } from "../components/display/Current";
+import { Key } from "../components/keyboard/Key";
+import { KeyRow } from "../components/keyboard/KeyRow";
+import { KeyList } from "../components/keyboard/KeyList";
 
-class App extends React.Component {
+import { setName } from "../actions/userActions";
+  
+  class App extends React.Component {
     render() {
-        return (
-          <div className="container">
-            <div className="row dash-bottom-border">
-              <div className="col-sm-12 num-display">
-                History
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-sm-12 num-display">
-                  Current
-              </div>
-            </div>
-            <div className="row">
-              <div className="key col-sm-5 border">
-                  Prev
-              </div>
-              <div className="key col-sm-5 border">
-                  Next
-              </div>
-              <div className="key col-sm-2 border">
-                  Clear
-              </div>
-            </div>
-            <div className="row">
-              <div className="key col-sm-2 border">
-                  7
-              </div>
-              <div className="key col-sm-2 border">
-                  8
-              </div>
-              <div className="key col-sm-2 border">
-                  9
-              </div>
-              <div className="key col-sm-4 border">
-                  /
-              </div>
-              <div className="key col-sm-2 border">
-                  Back
-              </div>
-            </div>
-            <div className="row">
-              <div className="key col-sm-2 border">
-                  4
-              </div>
-              <div className="key col-sm-2 border">
-                  5
-              </div>
-              <div className="key col-sm-2 border">
-                  6
-              </div>
-              <div className="key col-sm-4 border">
-                  *
-              </div>
-              <div className="key col-sm-2">
-                  
-              </div>
-            </div>
-            <div className="row">
-              <div className="key col-sm-2 border">
-                  1
-              </div>
-              <div className="key col-sm-2 border">
-                  2
-              </div>
-              <div className="key col-sm-2 border">
-                  3
-              </div>
-              <div className="key col-sm-4 border">
-                  -
-              </div>
-              <div className="key col-sm-2">
-                  =
-              </div>
-            </div>
-            <div className="row">
-              <div className="key col-sm-2 border">
-                 
-              </div>
-              <div className="key col-sm-2 border">
-                  0
-              </div>
-              <div className="key col-sm-2 border">
-                  .
-              </div>
-              <div className="key col-sm-4 border">
-                  +
-              </div>
-              <div className="key col-sm-2">
-                  
-              </div>
-            </div>
-          </div>
-        );
+      var rows = KeyList.map((rows, i) => {
+        return <KeyRow keys={rows.keys} key={i}/>
+      });
+
+      return (
+        <div className="container">
+          <History/>
+          <Current/>
+          { rows }
+        </div>
+      );
     }
 }
 
