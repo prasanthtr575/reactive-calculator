@@ -5,23 +5,17 @@ import { User } from "../components/User";
 import { Main } from "../components/Main";
 import { History } from "../components/display/History";
 import { Current } from "../components/display/Current";
-import { Key } from "../components/keyboard/Key";
-import { KeyRow } from "../components/keyboard/KeyRow";
-import { KeyList } from "../components/keyboard/KeyList";
+import { Keypad } from "../components/keyboard/Keypad";
 
 import { setName } from "../actions/userActions";
   
   class App extends React.Component {
     render() {
-      var rows = KeyList.map((rows, i) => {
-        return <KeyRow keys={rows.keys} key={i}/>
-      });
-
       return (
         <div className="container">
           <History/>
           <Current/>
-          { rows }
+          <Keypad/>
         </div>
       );
     }
