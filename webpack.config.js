@@ -14,6 +14,7 @@ module.exports = {
         filename: 'bundle.js',
         // publicPath: '/dist'
     },
+    devtool: 'source-map',
     devServer: {
         port: 9000,
         open: true

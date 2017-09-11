@@ -3,11 +3,13 @@ import { createLogger } from 'redux-logger'
 
 import math from "./reducers/mathReducer";
 import user from "./reducers/userReducer";
+import calc from "./reducers/calcReducer";
 
 export default createStore(
     combineReducers({
         math,
-        user
+        user,
+        calc
     }),
     {},
     applyMiddleware(createLogger())
